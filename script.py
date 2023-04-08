@@ -83,3 +83,42 @@ add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]]
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 #print(attractions)
+
+# 38. Write a function called find_attractions() that takes two parameters: destination, the name of the destination and interests, a list of interests.
+
+def find_attractions(destination: str, interests: list):
+  destination_index = get_destination_index(destination)
+
+  # 40. Look up that destination’s attractions by indexing into attractions with destination_index. Save this into the variable attractions_in_city.
+  attractions_in_city = attractions[destination_index]
+
+  # 41. Create a new list called attractions_with_interest. Make it empty when declaring it, we’ll save attractions into this list if they match one of our interests.
+  attractions_with_interest = []
+
+  # 42. Create a loop over attractions_in_city saving each item in the list into the temporary variable possible_attraction.
+  for attraction in attractions_in_city:
+    possible_attraction = attraction
+
+    # 43. For each attraction, retrieve the tagged information about it.
+    # In the body of the for loop, save the attraction’s tags into the variable attraction_tags.
+
+    attraction_tags = possible_attraction[1]
+
+    # 44. We want to see if any of the given interests are in attraction_tags.
+    # We’re going to loop through the interests and check if any of them are in attraction_tags.
+    # Create a for loop in the body of the current for loop to loop through each interest in interests.
+
+    for interest in interests:
+
+      # 45. For every interest in interests, check if that interest is in attraction_tags.
+      # If the interest is in the attraction_tags, append possible_attraction to attractions_with_interest.
+
+      if attraction_tags.count(interest) > 0:
+        attractions_with_interest.append(possible_attraction[0])
+  
+  # 46. At the end of your function, return attractions_with_interest.
+  return attractions_with_interest
+
+# 47. Testing find_attractions
+la_arts = find_attractions("Los Angeles, USA", ['art'])
+print(la_arts)
