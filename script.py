@@ -53,3 +53,33 @@ def get_traveler_location(traveler: list):
 
 test_destination_index = get_traveler_location(test_traveler)
 #print(test_destination_index)
+
+# 24/25. Now we want to create and maintain a list of attractions. Let’s start by defining a list called attractions.
+# We want attractions to be an empty list for every destination in destinations
+
+attractions = [[] for i in destinations]
+#print(attractions)
+
+# 27. Now let’s create a function called add_attraction().
+# This function should take two parameters: destination, the name of the location and attraction, the attraction.
+
+def add_attraction(destination: str, attraction: list):
+  
+  # 28. Use get_destination_index() with the passed in destination in order to retrieve the index of the destination.
+  # Save the results into destination_index.
+  destination_index = get_destination_index(destination)
+  attractions[destination_index].append(attraction)
+
+# Testing add_attraction
+add_attraction("Los Angeles, USA", ["Venice Beach", ["Beach"]])
+add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
+add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
+add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historical site"]])
+add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
+add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
+add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
+add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
+add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
+add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
+add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
+#print(attractions)
