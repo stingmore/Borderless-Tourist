@@ -144,8 +144,12 @@ def get_attractions_for_traveler(traveler: list):
 
   attraction_string = "Hi " + traveler_name + ", we think you'll like these places around " + traveler_destination + ": "
 
-  for attraction in traveler_attractions:
-    attraction_string += attraction + ", "
+  for i in range(len(traveler_attractions)):
+    
+    if traveler_attractions[-1] == traveler_attractions[i]:
+      attraction_string += traveler_attractions[i] + "."
+    else:
+      attraction_string += traveler_attractions[i] + ", "
 
   return attraction_string
 
